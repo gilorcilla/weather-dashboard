@@ -6,17 +6,17 @@ Use the Open Weather API to retrieve weather data for cities.
 
 ### Table of Contents
 
-Description
+-[Description](https://github.com/gilorcilla/weather-dashboard#description)
 
-User Story
+-[User Story](https://github.com/gilorcilla/weather-dashboard#user-story)
 
-Installation
+-[Installation](https://github.com/gilorcilla/weather-dashboard#installation)
 
-Built With
+-[Built With](https://github.com/gilorcilla/weather-dashboard#built-with)
 
-License
+-[License](https://github.com/gilorcilla/weather-dashboard#license)
 
-Quesions
+Questions
 
 ### Description
 
