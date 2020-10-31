@@ -15,7 +15,7 @@ function buildQueryUrl(searchHistory) {
     let queryParams = { "appid": "804a431c119b5a58e4b92afb5b02a0c7" }
     queryParams.q  = searchHistory
     queryParams.units = "imperial"
-    return queryURL + $.param(queryURL):
+    return queryURL + $.param(queryURL);
 
 }
 
@@ -65,6 +65,16 @@ function buildFiveDayForecast(fiveData){
             src: dayWeatherIcon,
             width: 50
         })
-        let day
+        let dayTempEl = Math.floor(day.main.temp);
+        let dayCard = $("<div>").addClass("card weather-card col-lg boder border-white opacity-4 text-black font-weight-bold mr-md-2 mb-3");
+        let dayDate = $("<h5>").attr("style", "font-size: 100%").addClass("card-title text-nowrap").text(`${dateMonth}/${dateDay}/${dateYear}`);
+        let dayTemp = $("<p>").addClass("card-text").text("Temp: " + dayTempEl + " F ");
+        let dayHum = $("<p>").addClass("card-text text-nowwrap").text("Humidity: " + day.main.humidity);
+        $(dayCard).append(dayDate);
+        $(dayCard).append(dayIconEl);
+        $(dayCard).append(dayTemp);
+        $(dayCard).append(dayHum);
+        $("#five-day-forecast").append(dayCard);
+
     }
 }
