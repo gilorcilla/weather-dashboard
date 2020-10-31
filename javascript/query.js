@@ -16,5 +16,36 @@ function buildQueryUrl(searchHistory) {
     queryParams.q  = searchHistory
     queryParams.units = "imperial"
     return queryURL + $.param(queryURL):
-    
+
+}
+
+function buildCurrentWeatherCard (data, weatherData, weatherCard, cityDataEl, tempEl, humidityEl, windspeedEl, weathericon){
+    $(weatherCard).append(cityDataEl);
+    $(weatherCard).append(weathericon);
+    $(weatherCard).append(tempEl);
+    $(weatherCard).append(humidityEl);
+    $(weatherCard).append(windspeedEl);
+    $("#current-day-forecast").append(weatherCard);
+
+}
+
+function buildCurrentWeatherCard(data){
+    var date = moment().format("MMM DD YY");
+    var weatherData = data;
+    var currentWeatherIcon =data.weather [0].icon;
+    var currentWeatherIconEl = "https://openweathermap.org/img/wn/" + currentWeatherIcon + "@2x.png";
+    var weathericon = $("<img/>", {
+        id: "weather-icon",
+        src: currentWeatherIconEl,
+        width: 75
+    });
+    var currentTemp = Math.floor(weatherData.main.temp);
+    var weatherCard = $("<div>").addClass("card weather-card opacity-4 text-black font-weight-bold border border-white current-day-weather");
+    var cityDataEl = $("<h5>").addClass("card-title").text(weatherData.name + " " + "(" + date + ")");
+    var tempEl = $("<p>").addClass("card-text").text("Temp: " + currentTemp + "F");
+    var humidityEl = $("<p>").addClass("card-text text-nowrap").text("Humidity: " + weatherData.main.humidity + " % ");
+    var windspeedEl = $("<p>").addClass("card-text").text("Windspeed: " + weatherData.wind.speed + "mph");
+
+    buildCurrentWeatherCard (data, weatherData, weatherCard, cityDataEl, tempEl, humidityEl, windspeedEl, weathericon);
+
 }
