@@ -49,3 +49,22 @@ function buildCurrentWeatherCard(data){
     buildCurrentWeatherCard (data, weatherData, weatherCard, cityDataEl, tempEl, humidityEl, windspeedEl, weathericon);
 
 }
+
+function buildFiveDayForecast(fiveData){
+
+    fiveDayList = fiveData.list;
+    for (var i =4; i < fiveDayList.length; i +=8){
+        let fiveDayList = fiveDayList[i];
+        let dateYear = day.dt_txt.slice(0,4);
+        let dateMonth = day.dt_txt.slice(5,7);
+        let dateDay = day.dt_txt.slice(8,10);
+        let dateIcon = day.weather[0].icon;
+        let dayWeatherIcon =  "https://openweathermap.org/img/wn" + dayIcon + ".png";
+        let dayIconEl = $("<img>",{
+            id:  "weather-icon",
+            src: dayWeatherIcon,
+            width: 50
+        })
+        let day
+    }
+}

@@ -89,5 +89,25 @@ $("#city-list").on("click", "button", function(){
         let uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?" + "lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&appid=804a431c119b5a58e4b92afb5b02a0c7"
     
     $.ajax({
-        
+        url: uvIndexTag,
+        method: "GET"
     })
+    .then(function(response){
+        let uvIndexEl = response.value;
+        uvIndexTag = $("<p>").text("UV Index: " + uvIndexEl);
+        $(".current-day-weather").append(uvIndexTag);
+
+    })
+
+    fiveDayQueryURL = buildFiveDayQueryUrl(data);
+
+    $.ajax({
+        url: fiveDayQueryURL,
+        method: "GET"
+    })
+    .then (function (fiveData){
+        buildFiveDayForecast(fiveData)
+    })
+    })
+})
+
