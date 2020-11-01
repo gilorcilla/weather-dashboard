@@ -111,3 +111,16 @@ $("#city-list").on("click", "button", function(){
     })
 })
 
+
+/*$.ajax({
+            url: "https://api.openweathermap.org/data/2.5/onecall",
+            data: {
+                q: searchCity,
+                appid: "804a431c119b5a58e4b92afb5b02a0c7",
+                units: "imperial",
+            },
+            success: function( result ) {
+                console.log(result)
+            }
+        });*/
+
