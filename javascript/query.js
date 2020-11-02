@@ -12,7 +12,7 @@
 
 function buildQueryUrl(searchHistory) {
     let queryURL = "https://api.openweathermap.org/data/2.5/weather?";
-    let queryParams = { "appid": "804a431c119b5a58e4b92afb5b02a0c7" }
+    let queryParams = { "appid": "d505d181bc232a369cacbc75835c8e23" }
     queryParams.q  = searchHistory
     queryParams.units = "imperial"
     return queryURL + $.param(queryURL);

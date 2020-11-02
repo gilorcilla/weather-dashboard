@@ -53,9 +53,10 @@ $(".search-button").on("click", function (event) {
     })
     .then(function (fiveData){
         buildFiveDayForecast(fiveData)
+        //console.log(fiveData);
     })
 
-    var uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?" + "lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&appid=804a431c119b5a58e4b92afb5b02a0c7"
+    var uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?" + "lat=" + data.coord.lat + "&long=" + data.coord.long + "&appid=d505d181bc232a369cacbc75835c8e23"
 
     buildCurrentWeatherCard(searchHistory);
 
@@ -67,6 +68,7 @@ $(".search-button").on("click", function (event) {
         let uvIndexEl = response.value
         uvIndexTag = $("<p>").text("UV Index: " + uvIndexEl)
         $(".current-day-weather").append(uvIndexTag)
+        //console.log(response);
     })
     $("#search-term").val(null)
     init();
@@ -86,7 +88,7 @@ $("#city-list").on("click", "button", function(){
     })
     .then(function (data){
         buildCurrentWeatherCard(data)
-        let uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?" + "lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&appid=804a431c119b5a58e4b92afb5b02a0c7"
+        let uvQueryURL = "https://api.openweathermap.org/data/2.5/uvi?" + "lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&appid=d505d181bc232a369cacbc75835c8e23"
     
     $.ajax({
         url: uvIndexTag,
@@ -116,7 +118,7 @@ $("#city-list").on("click", "button", function(){
             url: "https://api.openweathermap.org/data/2.5/onecall",
             data: {
                 q: searchCity,
-                appid: "804a431c119b5a58e4b92afb5b02a0c7",
+                appid: "d505d181bc232a369cacbc75835c8e23",
                 units: "imperial",
             },
             success: function( result ) {
