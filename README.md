@@ -14,6 +14,8 @@ Use the Open Weather API to retrieve weather data for cities.
 
 -[Built With](https://github.com/gilorcilla/weather-dashboard#built-with)
 
+-[Test](https://github.com/gilorcilla/weather-dashboard#test)
+
 -[License](https://github.com/gilorcilla/weather-dashboard#license)
 
 Questions
