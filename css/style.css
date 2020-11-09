@@ -9,6 +9,7 @@ body {
   box-shadow: 0 4px 8px 0 rgba(13, 122, 245, 0.2),
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: lightgoldenrodyellow;
+  width: 30%;
 }
 
 h4 {
@@ -17,6 +18,12 @@ h4 {
 
 .btn {
   color: rgb(250, 244, 244);
+  /* height: 2.5rem;
+  width: 2.5rem;
+  background-color: blue;
+  box-shadow: cornflowerblue;
+  margin-top: auto;
+  margin-bottom: auto; */
 }
 
 .li {
