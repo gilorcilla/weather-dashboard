@@ -25,6 +25,8 @@ function renderCities(cities) {
     $("#city-list").prepend(li);
     $("#city-list").prepend("<br>");
   }
+  currentWeather(cities[cities.length - 1] || "Denver");
+  forecastWeather(cities[cities.length - 1] || "Denver");
 }
 $("#city-list").on("click", "button", function () {
   var city = $(this).text();
@@ -78,7 +80,7 @@ function currentWeather(city) {
 
         <h1>${city}</h1>
         <h3>Temp: ${fiveData.main.temp}</h3>
-        <img src="" />
+        <img src="https://openweathermap.org/img/wn/${fiveData.weather[0].icon}@2x.png" />
         <p>windspeed${fiveData.wind.speed}</p>
         <p>humidity${fiveData.main.humidity}</p>
         <p>${fiveData.weather[0].description}</p>
@@ -112,7 +114,9 @@ function forecastWeather(city) {
       htmlString += `<div class="card bg-primary m-3 p-3">
             <h6>${data[i].dt_txt.split(" ")[0]}</h6>
             <h3>Temp: ${data[i].main.temp}</h3>
-            <img src="" />
+            <img src="https://openweathermap.org/img/wn/${
+              data[i].weather[0].icon
+            }@2x.png" />
             <h4>windspeed${data[i].wind.speed}</h4>
             <h4>humidity${data[i].main.humidity}</h4>
             <h4>${data[i].weather[0].description}</h4>
@@ -123,13 +127,13 @@ function forecastWeather(city) {
     $("#five-day-forecast").html(htmlString);
   });
 }
-function uvInfo() {
+function uvInfo(lat, lon) {
   var uvQueryURL =
     "https://api.openweathermap.org/data/2.5/uvi?" +
     "lat=" +
-    data.coord.lat +
-    "&long=" +
-    data.coord.long +
+    lat +
+    "&lon=" +
+    lon +
     "&appid=d505d181bc232a369cacbc75835c8e23";
 
   $.ajax({
@@ -139,6 +143,13 @@ function uvInfo() {
     let uvIndexEl = response.value;
     uvIndexTag = $("<p>").text("UV Index: " + uvIndexEl);
     $("#uv").html(uvIndexTag);
+    if (uvIndexEl > 8) {
+      $("#uv").addClass("bg-danger");
+    } else if (uvIndexEl > 6) {
+      $("#uv").addClass("bg-warning");
+    } else {
+      $("#uv").addClass("bg-success");
+    }
     //console.log(response);
   });
 }
